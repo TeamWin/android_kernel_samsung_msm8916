@@ -372,7 +372,7 @@ LINUXINCLUDE    := \
 KBUILD_CPPFLAGS := -D__KERNEL__
 
 KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
-		   -fno-strict-aliasing -fno-common \
+		   -fno-strict-aliasing \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
@@ -699,6 +699,9 @@ endif
 KBUILD_CPPFLAGS += $(KCPPFLAGS)
 KBUILD_AFLAGS += $(KAFLAGS)
 KBUILD_CFLAGS += $(KCFLAGS)
+# Fix GCC 10+ -fno-common default breaking legacy kernels (dtc yylloc issue)
+KBUILD_CFLAGS += -fcommon
+HOSTCFLAGS += -fcommon
 
 ifeq ($(CONFIG_SENSORS_FINGERPRINT), y)
 ifneq ($(CONFIG_SEC_FACTORY), true)
