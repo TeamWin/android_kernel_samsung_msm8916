@@ -1,6 +1,6 @@
 # scripts/dtc makefile
 
-hostprogs-y	:= dtc
+hostprogs-y	:=
 always		:= $(hostprogs-y)
 
 dtc-objs	:= dtc.o flattree.o fstree.o data.o livetree.o treesource.o \
