@@ -14,9 +14,6 @@
 #define FLEX_BETA
 #endif
 
-#define YYLTYPE_IS_DECLARED 1
-extern YYLTYPE yylloc;
-
 /* First, we deal with  platform-specific or compiler-specific issues. */
 
 /* begin standard C headers. */
