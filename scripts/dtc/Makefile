@@ -27,13 +27,5 @@ HOSTCFLAGS_dtc-parser.tab.o := $(HOSTCFLAGS_DTC) -fcommon
 # dependencies on generated files need to be listed explicitly
 $(obj)/dtc-lexer.lex.o: $(obj)/dtc-parser.tab.h
 
-
-# Force regeneration of dtc sources instead of using shipped ones
-$(obj)/dtc-lexer.lex.c: $(src)/dtc-lexer.l
-	$(LEX) -o $@ $<
-
-$(obj)/dtc-parser.tab.c: $(src)/dtc-parser.y
-	$(YACC) -d -o $@ $<
-
 # generated files need to be cleaned explicitly
 clean-files	:= dtc-lexer.lex.c dtc-parser.tab.c dtc-parser.tab.h
